@@ -7,7 +7,8 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class RibbonConfig {
-    //restTemplate + ribbon 实现负载均衡（客户端的均衡负载）
+
+    //restTemplate + ribbon 实现负载均衡（客户端的均衡负载）test
     @Bean
     @LoadBalanced
     //代表对服务多个实例调用时开启负载均衡
