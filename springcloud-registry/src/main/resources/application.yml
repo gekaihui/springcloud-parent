@@ -1,0 +1,29 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: registry
+
+#security:
+#  basic:
+#    #代表开启账号密码认证,登录eurekaServer时需要输入账号密码
+#    enabled: true
+#  user:
+#    name: root
+#    password: 123
+
+eureka:
+  instance:
+      hostname: localhost
+  client:
+    service-url:
+       #代表注册到eureka服务端的地址
+       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    #该服务为注册中心，增加此行代表不在注册中心注册自己
+    register-with-eureka: false
+    #由于注册中心呢的职责是维护实例，为FALSE代表其不用去检索服务
+    fetch-registry: false
+
+
+

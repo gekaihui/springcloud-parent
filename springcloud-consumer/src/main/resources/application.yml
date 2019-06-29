@@ -1,0 +1,25 @@
+server:
+  port: 8085
+
+eureka:
+  client:
+    service-url:
+       #代表注册到eureka服务端的地址
+       defaultZone: http://localhost:8084/eureka/
+spring:
+  application:
+    name: consumer
+
+
+
+
+
+
+
+
+
+
+
+
+
+

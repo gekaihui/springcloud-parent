@@ -1,0 +1,29 @@
+server:
+  port: 8088
+
+eureka:
+  client:
+    service-url:
+       #代表注册到eureka服务端的地址
+       defaultZone: http://localhost:8084/eureka/
+spring:
+  application:
+    name: zuul
+zuul:
+  servlet-path: /
+  routes:
+    test1:
+      path: /test1/**
+      serviceId: service
+
+
+
+
+
+
+
+
+
+
+
+
