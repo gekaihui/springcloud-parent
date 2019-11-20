@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gkh.springboot.mapper.secondary.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.gkh.springboot.entity.Student">
+    <result column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="AGE" jdbcType="DECIMAL" property="age" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, NAME, AGE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from GKH_STUDENT
+    where ID= #{id,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="com.gkh.springboot.entity.Student">
+    insert into GKH_STUDENT (ID, MAME, AGE
+      )
+    values (#{id,jdbcType=DECIMAL}, #{mame,jdbcType=VARCHAR}, #{age,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gkh.springboot.entity.Student">
+    insert into GKH_STUDENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="mame != null">
+        MAME,
+      </if>
+      <if test="age != null">
+        AGE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="mame != null">
+        #{mame,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>

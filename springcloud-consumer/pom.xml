@@ -27,7 +27,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-
         <!-- rest+ribbon实现服务调用和服务提供者的负载均衡-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

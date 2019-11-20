@@ -3,16 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.gkh</groupId>
-    <artifactId>springcloud-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
 
     <parent>
         <artifactId>springcloud-parent</artifactId>
         <groupId>com.gkh</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
+    <groupId>com.gkh</groupId>
+    <artifactId>springcloud-service</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <dependencies>
         <!-- eureka客户端 -->
@@ -42,6 +43,19 @@
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
             <version>11.2.0.3</version>
+        </dependency>
+
+        <!-- alibaba的druid数据库连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+        <!--Mapper 逆向工程生成的实体类需要的依赖-->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0.2</version>
         </dependency>
     </dependencies>
 
@@ -73,17 +87,23 @@
             </plugin>
         </plugins>
 
-        <!-- 如果mapper.xml是放在th:src/main/java目录下，需配置以下-->
-        <!--<resources>-->
-        <!--<resource>-->
-        <!--<directory>src/main/java</directory>-->
-        <!--<includes>-->
-        <!--<include>**/*.xml</include>-->
-        <!--</includes>-->
-        <!--&lt;!&ndash; 是否替换资源中的属性&ndash;&gt;-->
-        <!--<filtering>false</filtering>-->
-        <!--</resource>-->
-        <!--</resources>-->
+        <!-- 如果mapper.xml是放在src/main/java目录下，需配置以下-->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.*</include>
+                    <include>*.*</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
 </project>

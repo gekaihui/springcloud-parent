@@ -1,7 +1,7 @@
 package com.gkh.springboot.service;
 
-import com.gkh.springboot.dao.UserMapper;
-import com.gkh.springboot.model.User;
+import com.gkh.springboot.entity.User;
+import com.gkh.springboot.mapper.primary.UserMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,10 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-
+    @Override
+    public User getUserById(Long id) {
+        return this.userMapper.selectByPrimaryKey(id);
+    }
 
     @Override
     public List<User> getUsers() {
@@ -30,7 +33,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUser(String id) {
-        return this.userMapper.selectByPrimaryKey(id);
+    public List<User> getUsers2() {
+        return this.userMapper.selectUsers2();
+    }
+
+    @Override
+    public int addUser(User user) {
+        return this.userMapper.insertSelective(user);
+    }
+
+    @Override
+    public int updUser(User user) {
+        return this.userMapper.updateByPrimaryKeySelective(user);
+    }
+
+    @Override
+    public int delUser(long id) {
+        return this.userMapper.deleteByPrimaryKey(id);
     }
 }
