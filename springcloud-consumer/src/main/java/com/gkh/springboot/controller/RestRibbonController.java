@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
  * 客户端的均衡负载  restTemplate+ ribbon
  */
 @RestController
-@RequestMapping
+@RequestMapping("/restRibbon")
 public class RestRibbonController {
 
     @Autowired

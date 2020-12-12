@@ -15,6 +15,6 @@ public class HelloController {
 
     @RequestMapping(value = "/name")
     public String helloName(@RequestParam(value="name") String name){
-        return "hello" + name + "我是服务器1  port:" + port;
+        return "hello" + name + "我是服务器11  port:" + port;
     }
 }

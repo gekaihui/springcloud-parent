@@ -11,24 +11,40 @@
     </parent>
 
     <groupId>com.gkh</groupId>
+    <artifactId>common-util</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <artifactId>springcloud-zuul</artifactId>
     <packaging>jar</packaging>
+
     <dependencies>
-        <!-- eureka客户端 -->
+        <!-- httpClient -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <!-- aviator java计算表达式计算引擎-->
+        <dependency>
+            <groupId>com.googlecode.aviator</groupId>
+            <artifactId>aviator</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <!-- DigestUtils 加密-->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.14</version>
+        </dependency>
+        <!-- 微信小程序解密依赖包-->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk16</artifactId>
+            <version>1.46</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
-        <!-- maven插件 -->
+        <!-- maven插件-->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

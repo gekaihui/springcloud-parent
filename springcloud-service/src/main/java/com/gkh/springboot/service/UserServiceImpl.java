@@ -1,5 +1,7 @@
 package com.gkh.springboot.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.gkh.springboot.entity.User;
 import com.gkh.springboot.mapper.primary.UserMapper;
 import org.slf4j.Logger;
@@ -50,5 +52,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public int delUser(long id) {
         return this.userMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public PageInfo<User> findAllByPage(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<User> list = userMapper.selectUsers();
+        PageInfo<User> pageInfo = new PageInfo<>(list);
+        return pageInfo;
     }
 }

@@ -4,17 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.gkh</groupId>
-    <artifactId>springcloud-consumer</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <name>springcloud-consumer</name>
-
     <parent>
         <artifactId>springcloud-parent</artifactId>
         <groupId>com.gkh</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
+    <groupId>com.gkh</groupId>
+    <artifactId>springcloud-consumer</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>springcloud-consumer</name>
 
     <dependencies>
         <!--  eureka客户端 -->
@@ -22,7 +22,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <!-- 声明式的HttpClient Feign客户端   feign的方式调服务-->
+        <!-- 声明式的HttpClient Feign客户端-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>

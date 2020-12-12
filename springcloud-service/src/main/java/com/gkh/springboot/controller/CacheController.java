@@ -52,7 +52,7 @@ public class CacheController {
     @GetMapping(value = "/getValueByKey")
     @ResponseBody
     public String getValueByKey(@RequestParam("key") String key){
-         return redisUtil.get(key);
+         return  String.valueOf(redisUtil.get(key));
     }
 
     /**

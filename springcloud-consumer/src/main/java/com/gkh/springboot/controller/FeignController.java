@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/feign")
 public class FeignController {
 
     @Autowired
     FeignService feignService;
 
-    @RequestMapping(value = "hi")
+    @RequestMapping(value = "/hi")
     public String sayHi(@RequestParam(value = "name") String name){
         return feignService.hello(name);
     }

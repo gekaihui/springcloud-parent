@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,6 +17,7 @@ import org.springframework.stereotype.Service;
  * vaule: 缓存的名称，在 spring 配置文件中定义，必须指定至少一个。 @Cacheable(value=”mycache”) @Cacheable(value={”cache1”,”cache2”}
  * key： 缓存的 key，可以为空，如果指定要按照 SpEL 表达式编写，如果不指定，则缺省按照方法的所有参数进行组合。 @Cacheable(value=”testcache”,key=”#userName”)
  * condition： 缓存的条件，可以为空，使用 SpEL 编写，返回 true 或者 false，只有为 true 才进行缓存。@Cacheable(value=”testcache”,condition=”#userName.length()>2”)
+ * 自定义key： “#参数名”或者“#p参数index”
  *
  * @CachePut
  * 在支持Spring Cache的环境下，对于使用@Cacheable标注的方法，Spring在每次执行前都会检查Cache中是否存在相同key的缓存元素，如果存在就不再执行该方法，而是直接从缓存中获取结果进行返回，否则才会执行并将返回结果存入指定的缓存中。
@@ -36,7 +36,7 @@ public class CacheServiceImpl implements CacheService {
     private UserMapper userMapper;
 
     @Override
-    @Cacheable(value = "user_sel", key = "#p0", unless = "#result == null")
+    @Cacheable(value = "user_sel", key = "#p0", unless = "#result == null")//user_sel 缓存名称
     public User selectById(String id) { //#p0代表参数
         return userMapper.selectByPrimaryKey(Long.valueOf(id));
     }

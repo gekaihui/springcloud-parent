@@ -1,6 +1,7 @@
 package com.gkh.springboot.controller;
 
 
+import com.github.pagehelper.PageInfo;
 import com.gkh.springboot.entity.User;
 import com.gkh.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,6 +91,16 @@ public class UserController {
         return this.userService.getUsers2();
     }
 
+    /***
+     * 分页查询
+     * @Author: gekaihui
+     * @Date: 2020/6/30
+     */
+    @RequestMapping(value = "/findByPage")
+    @ResponseBody
+    public PageInfo<User> findAllByPage(@RequestParam(value = "pageNum") String pageNum, @RequestParam(value = "pageSize") String pageSize) {
+        return this.userService.findAllByPage(Integer.parseInt(pageNum), Integer.parseInt(pageSize));
+    }
     /**
      * 新增
      * @param user

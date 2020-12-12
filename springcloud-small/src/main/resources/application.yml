@@ -1,5 +1,5 @@
 server:
-  port: 8089
+  port: 8085
 
 eureka:
   client:
@@ -8,13 +8,9 @@ eureka:
        defaultZone: http://localhost:8081/eureka/
 spring:
   application:
-    name: zuul
-zuul:
-  servlet-path: /
-  routes:
-    test1:
-      path: /test1/**
-      serviceId: service
+    name: weixin-small
+
+
 
 
 
