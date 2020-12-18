@@ -1,5 +1,5 @@
 server:
-  port: 8084
+  port: 8085
 
 eureka:
   client:
@@ -8,15 +8,7 @@ eureka:
        defaultZone: http://localhost:8081/eureka/
 spring:
   application:
-    name: rocketmq
-
-rocketmq:
-  name-server: http://127.0.0.1:9876 #rocketmq服务地址
-  producer:
-    group: MyProducer2
-    send-message-timeout: 3000 #消息发送超时时长
-  consumer:
-    group: MyConsumer2
+    name: study
 
 
 

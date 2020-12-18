@@ -1,4 +1,4 @@
-package com.gkh.springboot.conf.rocketmq;
+package com.gkh.springboot.config.rocketmq;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
@@ -18,17 +18,17 @@ import org.springframework.context.annotation.Bean;
 @SpringBootConfiguration
 public class MQConsumerConfiguration {
 
-    @Value("${rocketmq.consumer.namesrvAddr}")
+    @Value("${rocketmq1.consumer.namesrvAddr}")
     private String namesrvAddr;
-    @Value("${rocketmq.consumer.groupName}")
+    @Value("${rocketmq1.consumer.groupName}")
     private String groupName;
-    @Value("${rocketmq.consumer.consumeThreadMin}")
+    @Value("${rocketmq1.consumer.consumeThreadMin}")
     private int consumeThreadMin;
-    @Value("${rocketmq.consumer.consumeThreadMax}")
+    @Value("${rocketmq1.consumer.consumeThreadMax}")
     private int consumeThreadMax;
-    @Value("${rocketmq.consumer.topics}")
+    @Value("${rocketmq1.consumer.topics}")
     private String topics;
-    @Value("${rocketmq.consumer.consumeMessageBatchMaxSize}")
+    @Value("${rocketmq1.consumer.consumeMessageBatchMaxSize}")
     private int consumeMessageBatchMaxSize;
 
     @Autowired
@@ -59,9 +59,9 @@ public class MQConsumerConfiguration {
                 consumer.subscribe(topicTag[0],topicTag[1]);
             }
             consumer.start();
-            log.info("consumer is start !!! groupName:{},topics:{},namesrvAddr:{}",groupName,topics,namesrvAddr);
+            log.info("===========================>consumer is start !!! groupName:{},topics:{},namesrvAddr:{}",groupName,topics,namesrvAddr);
         } catch (MQClientException e) {
-            log.error("consumer is start !!! groupName:{},topics:{},namesrvAddr:{}",groupName,topics,namesrvAddr,e);
+            log.error("===========================>consumer is start !!! groupName:{},topics:{},namesrvAddr:{}",groupName,topics,namesrvAddr,e);
         }
         return consumer;
     }

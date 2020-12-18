@@ -1,7 +1,8 @@
-package com.gkh.springboot.service;
+package com.gkh.springboot.service.impl;
 
 import com.gkh.springboot.entity.Student;
 import com.gkh.springboot.mapper.secondary.StudentMapper;
+import com.gkh.springboot.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

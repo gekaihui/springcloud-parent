@@ -1,9 +1,10 @@
-package com.gkh.springboot.service;
+package com.gkh.springboot.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.gkh.springboot.entity.User;
 import com.gkh.springboot.mapper.primary.UserMapper;
+import com.gkh.springboot.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

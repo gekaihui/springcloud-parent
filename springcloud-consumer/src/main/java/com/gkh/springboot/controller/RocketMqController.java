@@ -28,18 +28,16 @@ public class RocketMqController {
     public String sendMsg () throws Exception  {
         List<String> msgs = new ArrayList<String>();
         msgs.add("mq消息：1");
-        msgs.add("mq消息：2");
-        msgs.add("mq消息：3");
-        msgs.add("mq消息：4");
-        msgs.add("mq消息：5");
+//        msgs.add("mq消息：2");
+//        msgs.add("mq消息：3");
+//        msgs.add("mq消息：4");
+//        msgs.add("mq消息：5");
 
         for(String msg: msgs) {
             Message message = new Message(MQContstant.TOPIC_ONE, MQContstant.TAG_ONE, msg.getBytes(RemotingHelper.DEFAULT_CHARSET));
             SendResult sendResult = defaultMQProducer.send(message);
             System.out.printf("%s%n", sendResult);
         }
-
-        defaultMQProducer.shutdown();
         return "发送成功！";
     }
 }

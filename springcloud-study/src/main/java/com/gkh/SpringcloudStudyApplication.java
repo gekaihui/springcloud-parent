@@ -10,9 +10,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @SpringBootApplication //启动注解,表示此为spring-boot的一个入口类
 @EnableEurekaClient  // 让服务使用eureka服务器,实现服务注册和发现
-public class SpringcloudRocketMqApplication {
+public class SpringcloudStudyApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(SpringcloudRocketMqApplication.class, args);
+		SpringApplication.run(SpringcloudStudyApplication.class, args);
 	}
 
 }

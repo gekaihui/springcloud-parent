@@ -1,5 +1,5 @@
 server:
-  port: 8088
+  port: 8082
 
 eureka:
   client:
@@ -10,18 +10,22 @@ spring:
     name: service
   datasource:
     primary:
-      jdbc-url: jdbc:oracle:thin:@127.0.0.1:1521:ORCL
-      username: gkh
+#      jdbc-url: jdbc:oracle:thin:@127.0.0.1:1521:ORCL
+#      username: gkh
+#      password: 123456
+#      driver-class-name: oracle.jdbc.driver.OracleDriver
+      url: jdbc:mysql://192.168.180.161:3306/promotion_platform?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false
+      username: root
       password: 123456
-      driver-class-name: oracle.jdbc.driver.OracleDriver
+      driver-class-name: com.mysql.jdbc.Driver
       type: com.alibaba.druid.pool.DruidDataSource  #使用druid连接池
       #url: jdbc:oracle:thin:@127.0.0.1:1521:ORCL
       #type: oracle.jdbc.pool.OracleDataSource
     secondary:
-      jdbc-url: jdbc:oracle:thin:@127.0.0.1:1521:ORCL
-      username: gkh
+      url: jdbc:mysql://192.168.180.161:3306/promotion_platform?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false
+      username: root
       password: 123456
-      driver-class-name: oracle.jdbc.driver.OracleDriver
+      driver-class-name: com.mysql.jdbc.Driver
       type: com.alibaba.druid.pool.DruidDataSource #使用druid连接池
 
     # 下面为连接池的补充设置，应用到上面所有数据源中
@@ -44,6 +48,7 @@ spring:
       remove-abandoned: true
       remove-abandoned-timeout: 180
       log-abandoned: true
+
   redis:
     database: 0
     host: 127.0.0.1
@@ -56,10 +61,7 @@ spring:
         max-idle: 8  # 连接池中的最大空闲连接
         min-idle: 0 # 连接池中的最小空闲连接
     timeout: 2000ms #连接超时时间
-  #热部署
-  devtools:
-    restart:
-      enabled: true #热部署开关
+
   thymeleaf:
     mode: HTML5
     encoding: UTF-8
@@ -84,4 +86,7 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+
+
+
 

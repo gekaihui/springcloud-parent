@@ -1,4 +1,4 @@
-package com.gkh.springboot.conf;
+package com.gkh.springboot.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;

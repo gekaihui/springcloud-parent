@@ -1,4 +1,4 @@
-package com.gkh.springboot.conf.rocketmq;
+package com.gkh.springboot.config.rocketmq;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.exception.MQClientException;
@@ -17,25 +17,25 @@ import org.springframework.context.annotation.Bean;
 @SpringBootConfiguration
 public class MQProducerConfiguration {
 
-    @Value("${rocketmq.producer.groupName}")
+    @Value("${rocketmq1.producer.groupName}")
     private String groupName;
-    @Value("${rocketmq.producer.namesrvAddr}")
+    @Value("${rocketmq1.producer.namesrvAddr}")
     private String namesrvAddr;
     /**
      * 消息最大大小，默认4M
      */
-    @Value("${rocketmq.producer.maxMessageSize}")
-    private Integer maxMessageSize ;
+    @Value("${rocketmq1.producer.maxMessageSize}")
+    private int maxMessageSize ;
     /**
      * 消息发送超时时间，默认3秒
      */
-    @Value("${rocketmq.producer.sendMsgTimeout}")
-    private Integer sendMsgTimeout;
+    @Value("${rocketmq1.producer.sendMsgTimeout}")
+    private int sendMsgTimeout;
     /**
      * 消息发送失败重试次数，默认2次
      */
-    @Value("${rocketmq.producer.retryTimesWhenSendFailed}")
-    private Integer retryTimesWhenSendFailed;
+    @Value("${rocketmq1.producer.retryTimesWhenSendFailed}")
+    private int retryTimesWhenSendFailed;
 
     @Bean
     public DefaultMQProducer getRocketMQProducer() {
@@ -50,10 +50,10 @@ public class MQProducerConfiguration {
 
         try {
             producer.start();
-            log.info(String.format("producer is start ! groupName:[%s],namesrvAddr:[%s]"
+            log.info(String.format("===========================>producer is start ! groupName:[%s],namesrvAddr:[%s]"
                     , this.groupName, this.namesrvAddr));
         } catch (MQClientException e) {
-            log.error(String.format("producer is error {}", e.getMessage(),e));
+            log.error(String.format("===========================>producer is error {}", e.getMessage(),e));
         }
         return producer;
     }

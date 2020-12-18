@@ -1,6 +1,6 @@
-package com.gkh.springboot.config.rocketmq2;
+package com.gkh.config.rocketmq;
 
-import com.gkh.springboot.constant.MQContstant;
+import com.gkh.constant.MQContstant;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-@RocketMQMessageListener(topic = MQContstant.TOPIC_TWO, selectorExpression = "*", consumerGroup = "MyConsumer2")
+@RocketMQMessageListener(topic = MQContstant.TOPIC_TWO, selectorExpression = "*", consumerGroup = "${rocketmq.consumer.group}")
 public class RocketMQMsgListener implements RocketMQListener<MessageExt> {
 
     @Override

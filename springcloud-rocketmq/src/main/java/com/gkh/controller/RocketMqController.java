@@ -1,18 +1,10 @@
-package com.gkh.springboot.controller;
+package com.gkh.controller;
 
-import com.gkh.springboot.config.rocketmq2.RocketMQProducer;
-import com.gkh.springboot.constant.MQContstant;
-import org.apache.rocketmq.client.producer.DefaultMQProducer;
-import org.apache.rocketmq.client.producer.SendResult;
-import org.apache.rocketmq.common.message.Message;
-import org.apache.rocketmq.remoting.common.RemotingHelper;
+import com.gkh.config.rocketmq.RocketMQProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author gekaihui
@@ -24,29 +16,9 @@ import java.util.List;
 public class RocketMqController {
 
     @Autowired
-    private DefaultMQProducer defaultMQProducer;
-
-    @Autowired
     private RocketMQProducer rocketMQProducer;
 
     @RequestMapping("send")
-    public String sendMsg () throws Exception  {
-        List<String> msgs = new ArrayList<String>();
-        msgs.add("mq消息：1");
-//        msgs.add("mq消息：2");
-//        msgs.add("mq消息：3");
-//        msgs.add("mq消息：4");
-//        msgs.add("mq消息：5");
-
-        for(String msg: msgs) {
-            Message message = new Message(MQContstant.TOPIC_ONE, MQContstant.TAG_ONE, msg.getBytes(RemotingHelper.DEFAULT_CHARSET));
-            SendResult sendResult = defaultMQProducer.send(message);
-            System.out.printf("%s%n", sendResult);
-        }
-        return "发送成功！";
-    }
-
-    @RequestMapping("send2")
     public String sendMsg2(@RequestParam(value = "msg") String msg) throws Exception {
         rocketMQProducer.sendMsg("msg");
         return "发送成功！";

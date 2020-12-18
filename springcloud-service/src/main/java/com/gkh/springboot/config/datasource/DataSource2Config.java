@@ -1,4 +1,4 @@
-package com.gkh.springboot.conf.datasource;
+package com.gkh.springboot.config.datasource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;

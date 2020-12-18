@@ -9,7 +9,32 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.gkh</groupId>
     <artifactId>springcloud-rocketmq</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>springcloud-rocketmq</name>
 
-
+    <dependencies>
+        <!--  eureka客户端 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <!--rocketmq-->
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
+            <version>2.0.4</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <!-- maven插件 -->
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

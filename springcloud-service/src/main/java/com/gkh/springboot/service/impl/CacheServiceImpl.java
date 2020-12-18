@@ -1,7 +1,8 @@
-package com.gkh.springboot.service;
+package com.gkh.springboot.service.impl;
 
 import com.gkh.springboot.entity.User;
 import com.gkh.springboot.mapper.primary.UserMapper;
+import com.gkh.springboot.service.CacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;

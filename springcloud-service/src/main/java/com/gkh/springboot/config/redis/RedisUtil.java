@@ -1,4 +1,4 @@
-package com.gkh.springboot.conf.redis;
+package com.gkh.springboot.config.redis;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

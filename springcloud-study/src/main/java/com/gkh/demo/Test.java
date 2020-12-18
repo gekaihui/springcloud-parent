@@ -1,7 +1,6 @@
-package com.gkh;
+package com.gkh.demo;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.text.DecimalFormat;
 
 /**
  * @author gekaihui
@@ -10,9 +9,8 @@ import java.util.Date;
  */
 public class Test {
     public static void main(String[] args) {
-       System.out.println(System.currentTimeMillis());
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        long time = new Date().getTime();
-        System.out.println(time);
+        DecimalFormat df = new DecimalFormat("0000");
+        Long id = 569L;
+        System.out.println(df.format(id));
     }
 }

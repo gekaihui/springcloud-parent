@@ -16,6 +16,11 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 public class SpringcloudServiceApplication {
 
 	public static void main(String[] args) {
+		/**
+		 * Springboot整合Elasticsearch 在项目启动前设置一下的属性，防止报错
+		 * java.lang.IllegalStateException: availableProcessors is already set to [8], rejecting [8]
+		 */
+		System.setProperty("es.set.netty.runtime.available.processors", "false");
 		SpringApplication.run(SpringcloudServiceApplication.class, args);
 	}
 }

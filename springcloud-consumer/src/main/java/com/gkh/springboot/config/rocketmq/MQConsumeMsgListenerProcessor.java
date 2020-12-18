@@ -1,4 +1,4 @@
-package com.gkh.springboot.conf.rocketmq;
+package com.gkh.springboot.config.rocketmq;
 
 import com.gkh.springboot.constant.MQContstant;
 import lombok.extern.slf4j.Slf4j;
@@ -27,11 +27,11 @@ public class MQConsumeMsgListenerProcessor implements MessageListenerConcurrentl
     @Override
     public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext consumeConcurrentlyContext) {
         if(CollectionUtils.isEmpty(msgs)){
-            log.info("接受到的消息为空，不处理，直接返回成功");
+            log.info("===========================>接受到的消息为空，不处理，直接返回成功");
             return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
         }
         for (MessageExt msg: msgs) {
-            log.info("接受到的消息为：" + msg.toString());
+            log.info("===========================>接受到的消息为：" + msg.toString());
             if(msg.getTopic().equals(MQContstant.TOPIC_ONE)){
                 if(msg.getTags().equals(MQContstant.TAG_ONE)){
                     //TODO 判断该消息是否重复消费（RocketMQ不保证消息不重复，如果你的业务需要保证严格的不重复消息，需要你自己在业务端去重）

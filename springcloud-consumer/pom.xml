@@ -33,6 +33,17 @@
             <artifactId>spring-cloud-starter-ribbon</artifactId>
             <version>1.4.4.RELEASE</version>
         </dependency>
+        <!--rocketmq-->
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-common</artifactId>
+            <version>4.3.0</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -1,8 +1,8 @@
 package com.gkh.springboot.controller;
 
-import com.gkh.springboot.conf.redis.RedisUtil;
+import com.gkh.springboot.config.redis.RedisUtil;
 import com.gkh.springboot.entity.User;
-import com.gkh.springboot.service.CacheServiceImpl;
+import com.gkh.springboot.service.impl.CacheServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
